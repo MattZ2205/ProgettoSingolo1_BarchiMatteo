@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
+        if(GameManager.gameStatus == GameManager.GameStatus.gameRunning)
         timer += Time.deltaTime;
         if (timer >= 5)
         {

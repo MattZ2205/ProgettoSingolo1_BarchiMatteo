@@ -7,21 +7,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     float horizontalMove, verticalMove;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
-        GetInput();
-        Move();
+        if (GameManager.gameStatus == GameManager.GameStatus.gameRunning)
+            GetInput();
     }
 
     void GetInput()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal");
         verticalMove = Input.GetAxisRaw("Vertical");
+        Move();
     }
 
     void Move()

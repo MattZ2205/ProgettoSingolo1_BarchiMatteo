@@ -6,19 +6,29 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
 
+    public bool isEnemy;
+
     void Update()
     {
-        transform.Translate(Vector3.right * bulletSpeed * Time.deltaTime);
+        if (isEnemy)
+            transform.Translate(Vector3.left * bulletSpeed * Time.deltaTime);
+        else
+            transform.Translate(Vector3.right * bulletSpeed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
-        if(collision.gameObject.layer == 11)
+        if (collision.gameObject.layer == 11)
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            enemy.takeDamage(20);
+            enemy.TakeDamageEnemy(20);
         }
-            
+
+        if (collision.gameObject.layer == 12)
+        {
+            MyPlayer enemy = collision.gameObject.GetComponent<MyPlayer>();
+            enemy.TakeDamage(10);
+        }
     }
 }

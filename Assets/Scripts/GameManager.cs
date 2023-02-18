@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using System.Xml;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //UIManager UM;
+    UIManager UM;
 
     private static GameManager _instance;
 
@@ -31,32 +30,30 @@ public class GameManager : MonoBehaviour
     {
         gamePaused,
         gameRunning,
-        gameEnd,
-        gameStart
+        gameEnd 
     }
 
-    public GameStatus gameStatus = GameStatus.gameRunning;
+    public static GameStatus gameStatus = GameStatus.gameRunning;
 
-    // Update is called once per frame
     void Update()
     {
-        //if (UM == null)
-        //    UM = FindObjectOfType<UIManager>();
+        if (UM == null)
+            UM = FindObjectOfType<UIManager>();
 
-        //if (Input.GetKeyDown("escape") && gameStatus == GameStatus.gameRunning)
-        //{
-        //    gameStatus = GameStatus.gamePaused;
-        //    UM.pauseMenu.SetActive(true);
-        //}
-        //else if (Input.GetKeyDown("escape") && gameStatus == GameStatus.gamePaused)
-        //    UM.Continue();
-        //else if (Input.GetKeyDown(KeyCode.R) && gameStatus == GameStatus.gameEnd)
-        //    UM.Restart();
+        if (Input.GetKeyDown("escape") && gameStatus == GameStatus.gameRunning)
+        {
+            gameStatus = GameStatus.gamePaused;
+            UM.pauseMenu.SetActive(true);
+        }
+        else if (Input.GetKeyDown("escape") && gameStatus == GameStatus.gamePaused)
+            UM.Continue();
+        else if (Input.anyKey && gameStatus == GameStatus.gameEnd)
+            UM.isRestarted = true;
     }
 
     public void EndGame()
     {
         gameStatus = GameStatus.gameEnd;
-        Nicolò?.Invoke();
+        UM.endGameScene.SetActive(true);
     }
 }
