@@ -23,6 +23,6 @@ public class Camera : MonoBehaviour
     {
         Destroy(collision.gameObject);
         if(collision.gameObject.layer == 12)
-            GM.EndGame();
+            GM.LoseGame();
     }
 }

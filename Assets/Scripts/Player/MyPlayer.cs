@@ -28,7 +28,7 @@ public class MyPlayer : MonoBehaviour
         if(HP <= 0)
         {
             gameObject.SetActive(false);
-            GM.EndGame();
+            GM.LoseGame();
         } 
     }
 

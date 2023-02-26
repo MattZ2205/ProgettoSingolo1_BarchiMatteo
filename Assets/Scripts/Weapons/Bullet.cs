@@ -27,8 +27,8 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.layer == 12)
         {
-            MyPlayer enemy = collision.gameObject.GetComponent<MyPlayer>();
-            enemy.TakeDamage(10);
+            MyPlayer player = collision.gameObject.GetComponent<MyPlayer>();
+            player.TakeDamage(20);
         }
     }
 }

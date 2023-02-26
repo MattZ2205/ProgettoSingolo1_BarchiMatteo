@@ -7,26 +7,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] Image HPBar;
-
-    float sinCenterY;
-    [SerializeField] float enemySpeed, HP;
-
-    private void Start()
-    {
-        sinCenterY = 0;
-    }
-
-    void Update()
-    {
-        if (GameManager.gameStatus == GameManager.GameStatus.gameRunning)
-        {
-            transform.Translate(Vector3.left * enemySpeed * Time.deltaTime);
-            Vector2 pos = transform.position;
-            float sin = Mathf.Sin(pos.x);
-            pos.y = sinCenterY + sin * 3f;
-            transform.position = pos;
-        }
-    }
+    [SerializeField] float HP;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

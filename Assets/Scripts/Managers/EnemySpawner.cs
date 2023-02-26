@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject Enemy;
+    [SerializeField] Transform upLimit, downLimit;
 
     float timer;
 
@@ -20,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Spawn()
     {
-        Instantiate(Enemy, transform.position, Quaternion.identity);
+        Instantiate(Enemy, new Vector3(transform.position.x, Random.Range(downLimit.position.y, upLimit.position.y), 0), Quaternion.identity);
         timer = 0;
     }
 }

@@ -11,10 +11,6 @@ public class GameManager : MonoBehaviour
 
     private static GameManager _instance;
 
-    public delegate void RecordToT();
-    public static event RecordToT Nicolò;
-
-
     private void Awake()
     {
         if (GameManager._instance != null)
@@ -30,7 +26,8 @@ public class GameManager : MonoBehaviour
     {
         gamePaused,
         gameRunning,
-        gameEnd 
+        gameEnd,
+        gameFinish
     }
 
     public static GameStatus gameStatus = GameStatus.gameRunning;
@@ -51,9 +48,9 @@ public class GameManager : MonoBehaviour
             UM.isRestarted = true;
     }
 
-    public void EndGame()
+    public void LoseGame()
     {
         gameStatus = GameStatus.gameEnd;
-        UM.endGameScene.SetActive(true);
+        UM.gameOverScene.SetActive(true);
     }
 }

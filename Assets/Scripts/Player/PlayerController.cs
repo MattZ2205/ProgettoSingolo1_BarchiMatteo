@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     float horizontalMove, verticalMove;
 
-    void Update()
+    void FixedUpdate()
     {
         if (GameManager.gameStatus == GameManager.GameStatus.gameRunning)
             GetInput();
@@ -22,6 +22,6 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        transform.Translate(new Vector3(horizontalMove, verticalMove, 0) * speed * Time.deltaTime, Space.World);
+        transform.Translate(new Vector2(horizontalMove, verticalMove) * speed * Time.deltaTime, Space.World);
     }
 }

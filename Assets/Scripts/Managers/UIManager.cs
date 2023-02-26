@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] public GameObject pauseMenu, endGameScene;
-    [SerializeField] public Text timerText;
+    [SerializeField] public GameObject pauseMenu, gameOverScene, winScene;
+    [SerializeField] public Text timerText, timerWinText;
 
-    public bool isRestarted = false;
+    [HideInInspector] public bool isRestarted = false;
     float timer = 3.4f;
 
     private void Update()
@@ -17,10 +18,24 @@ public class UIManager : MonoBehaviour
         if (isRestarted)
         {
             timer -= Time.deltaTime;
-            timerText.text = Mathf.Round(timer).ToString();
-            if(timer <= 0.6f)
-                Restart();
+            if (gameOverScene.activeSelf)
+            {
+                timerText.text = Mathf.Round(timer).ToString();
+                if (timer <= 0.6f)
+                    Restart();
+            }
+            else if (winScene.activeSelf)
+            {
+                timerWinText.text = Mathf.Round(timer).ToString();
+                if (timer <= 0.6f)
+                    nextLvl();
+            }
         }
+    }
+
+    void nextLvl()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Continue()

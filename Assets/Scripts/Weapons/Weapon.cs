@@ -23,7 +23,7 @@ public class Weapon : MonoBehaviour
         if (isEnemyWeapon && GameManager.gameStatus == GameManager.GameStatus.gameRunning)
         {
             timerShoot += Time.deltaTime;
-            if (timerShoot >= 2.5f)
+            if (timerShoot >= 1.5f)
             {
                 GameObject actualBullet = inGameBullets.Dequeue();
                 Bullet enemyBullet = actualBullet.GetComponent<Bullet>();
