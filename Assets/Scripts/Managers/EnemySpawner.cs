@@ -8,12 +8,13 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] Transform upLimit, downLimit;
 
     float timer;
+    [SerializeField] float timeToSpawn;
 
     void Update()
     {
         if(GameManager.gameStatus == GameManager.GameStatus.gameRunning)
         timer += Time.deltaTime;
-        if (timer >= 5)
+        if (timer >= timeToSpawn)
         {
             Spawn();
         }

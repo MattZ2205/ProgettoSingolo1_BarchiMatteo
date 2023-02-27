@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] public GameObject pauseMenu, gameOverScene, winScene;
+    [SerializeField] public GameObject pauseMenu, gameOverScene, winScene, finishScene;
     [SerializeField] public Text timerText, timerWinText;
 
     [HideInInspector] public bool isRestarted = false;
@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour
 
     void nextLvl()
     {
+        GameManager.gameStatus = GameManager.GameStatus.gameRunning;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -54,5 +55,16 @@ public class UIManager : MonoBehaviour
     {
         GameManager.gameStatus = GameManager.GameStatus.gameRunning;
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+    }
+
+    public void FinishGame()
+    {
+        GameManager.gameStatus= GameManager.GameStatus.gameFinish;
+        finishScene.SetActive(true);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

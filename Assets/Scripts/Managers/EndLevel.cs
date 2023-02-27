@@ -19,6 +19,6 @@ public class EndLevel : MonoBehaviour
             UM.winScene.SetActive(true);
         }
         else
-            GameManager.gameStatus = GameManager.GameStatus.gameFinish;
+            UM.FinishGame();
     }
 }

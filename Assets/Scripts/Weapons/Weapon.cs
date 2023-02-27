@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] bool isEnemyWeapon;
     float timerShoot;
+    [SerializeField] float timeToShoot;
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class Weapon : MonoBehaviour
         if (isEnemyWeapon && GameManager.gameStatus == GameManager.GameStatus.gameRunning)
         {
             timerShoot += Time.deltaTime;
-            if (timerShoot >= 1.5f)
+            if (timerShoot >= timeToShoot)
             {
                 GameObject actualBullet = inGameBullets.Dequeue();
                 Bullet enemyBullet = actualBullet.GetComponent<Bullet>();

@@ -361,6 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullets: {fileID: 7385170805434153062, guid: 085419f753512404d8b7e24abb2d7121, type: 3}
   isEnemyWeapon: 1
+  timeToShoot: 1.5
 --- !u!1 &7922347946574853896
 GameObject:
   m_ObjectHideFlags: 0

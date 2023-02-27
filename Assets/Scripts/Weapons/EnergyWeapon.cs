@@ -8,6 +8,7 @@ public class EnergyWeapon : MonoBehaviour
     Queue<GameObject> inGameBullets;
 
     float timerShoot;
+    [SerializeField] float timeToShoot;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class EnergyWeapon : MonoBehaviour
         if (GameManager.gameStatus == GameManager.GameStatus.gameRunning)
         {
             timerShoot += Time.deltaTime;
-            if (timerShoot >= 1.5f)
+            if (timerShoot >= timeToShoot)
             {
                 Instantiate(inGameBullets.Dequeue(), transform.position, Quaternion.identity);
                 inGameBullets.Enqueue(bullets);

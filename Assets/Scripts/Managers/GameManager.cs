@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     UIManager UM;
 
+    [HideInInspector] public float playerHP = 100;
+
     private static GameManager _instance;
 
     private void Awake()
@@ -29,7 +31,6 @@ public class GameManager : MonoBehaviour
         gameEnd,
         gameFinish
     }
-
     public static GameStatus gameStatus = GameStatus.gameRunning;
 
     void Update()
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     public void LoseGame()
     {
+        playerHP = 100;
         gameStatus = GameStatus.gameEnd;
         UM.gameOverScene.SetActive(true);
     }
