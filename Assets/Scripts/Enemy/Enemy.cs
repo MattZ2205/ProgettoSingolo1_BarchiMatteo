@@ -7,12 +7,18 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] Image HPBar;
-    [SerializeField] float HP;
+    [SerializeField] float maxHP;
+    float HP;
+
+    private void Start()
+    {
+        HP = maxHP;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 12) 
-        { 
+        if (collision.gameObject.layer == 12)
+        {
             MyPlayer pl = collision.gameObject.GetComponent<MyPlayer>();
             pl.TakeDamage(50);
         }
@@ -28,6 +34,6 @@ public class Enemy : MonoBehaviour
 
     void HPBarFill()
     {
-        HPBar.fillAmount = HP / 100;
+        HPBar.fillAmount = HP / maxHP;
     }
 }

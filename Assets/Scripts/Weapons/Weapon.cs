@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] GameObject bullets;
+    [SerializeField] GameObject charged;
+    [SerializeField] Image chargedBar;
+
+    [SerializeField] GameObject bullets, chargedBullet;
     Queue<GameObject> inGameBullets;
 
-    [SerializeField] bool isEnemyWeapon;
-    float timerShoot;
-    [SerializeField] float timeToShoot;
+    float timerCharge;
 
     void Start()
     {
@@ -21,28 +23,43 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
-        if (isEnemyWeapon && GameManager.gameStatus == GameManager.GameStatus.gameRunning)
+        if (Input.GetKey(KeyCode.Space) && GameManager.gameStatus == GameManager.GameStatus.gameRunning)
         {
-            timerShoot += Time.deltaTime;
-            if (timerShoot >= timeToShoot)
+            timerCharge += Time.deltaTime;
+            if (timerCharge >= 0.2f)
             {
-                GameObject actualBullet = inGameBullets.Dequeue();
-                Bullet enemyBullet = actualBullet.GetComponent<Bullet>();
-                enemyBullet.isEnemy = true;
-                Instantiate(actualBullet, transform.position, Quaternion.identity);
-                inGameBullets.Enqueue(bullets);
-                timerShoot = 0;
+                charged.gameObject.SetActive(true);
+                chargedBar.fillAmount = timerCharge / 1.5f;
             }
-
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && GameManager.gameStatus == GameManager.GameStatus.gameRunning && !isEnemyWeapon)
+        if (Input.GetKeyUp(KeyCode.Space) && timerCharge >= 1.5f)
         {
-            GameObject actualBullet = inGameBullets.Dequeue();
-            Bullet playerBullet = actualBullet.GetComponent<Bullet>();
-            playerBullet.isEnemy = false;
-            Instantiate(actualBullet, transform.position, Quaternion.identity);
-            inGameBullets.Enqueue(bullets);
+            charged.gameObject.SetActive(false);
+            ChargedShoot();
+            timerCharge = 0;
         }
+        else if (Input.GetKeyUp(KeyCode.Space) && timerCharge < 1.5f)
+        {
+            if (timerCharge >= 0.2f)
+                charged.gameObject.SetActive(false);
+            Shoot();
+            timerCharge = 0;
+        }
+    }
+
+    void ChargedShoot()
+    {
+        Bullet actualBullet = chargedBullet.GetComponent<Bullet>();
+        actualBullet.damage = 40;
+        Instantiate(actualBullet, transform.position, Quaternion.identity);
+    }
+
+    void Shoot()
+    {
+        Bullet actualBullet = inGameBullets.Dequeue().GetComponent<Bullet>();
+        actualBullet.damage = 15;
+        Instantiate(actualBullet, transform.position, Quaternion.identity);
+        inGameBullets.Enqueue(bullets);
     }
 }

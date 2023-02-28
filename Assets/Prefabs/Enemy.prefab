@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HPBar: {fileID: 1329286172302252198}
-  HP: 100
+  maxHP: 100
 --- !u!1 &6990799484056734228
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3673888565921640384}
-  - component: {fileID: 4121039618339349600}
+  - component: {fileID: 6295311795814759507}
   m_Layer: 11
   m_Name: Muzzle
   m_TagString: Untagged
@@ -347,7 +347,7 @@ Transform:
   m_Father: {fileID: 7110935437406433157}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4121039618339349600
+--- !u!114 &6295311795814759507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -356,11 +356,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6990799484056734228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1080d13c2cc928f4f9cb478dad59d0a9, type: 3}
+  m_Script: {fileID: 11500000, guid: ddafeb8bda9bdf94d94d7464feba23b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullets: {fileID: 7385170805434153062, guid: 085419f753512404d8b7e24abb2d7121, type: 3}
-  isEnemyWeapon: 1
+  bullets: {fileID: 7385170805434153062, guid: d165d98a1f3d7f64da6969e418661dd6, type: 3}
+  isEnergyWeapon: 0
+  isOPWeapon: 0
   timeToShoot: 1.5
 --- !u!1 &7922347946574853896
 GameObject:

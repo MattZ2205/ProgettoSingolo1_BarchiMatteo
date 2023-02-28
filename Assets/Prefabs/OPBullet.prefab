@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3880948677683062087}
   - component: {fileID: 3880948677683062084}
   - component: {fileID: 3880948677683062085}
-  m_Layer: 13
+  m_Layer: 16
   m_Name: OPBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

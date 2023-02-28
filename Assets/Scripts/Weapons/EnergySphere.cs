@@ -15,12 +15,13 @@ public class EnergySphere : MonoBehaviour
 
     void Update()
     {
-        transform.RotateAround(en.transform.position, Vector3.forward, rotationSpeed);
+        if (GameManager.gameStatus == GameManager.GameStatus.gameRunning)
+            transform.RotateAround(en.transform.position, Vector3.forward, rotationSpeed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == 12)
+        if (collision.gameObject.layer == 12)
         {
             MyPlayer p = collision.GetComponent<MyPlayer>();
             p.TakeDamage(100);

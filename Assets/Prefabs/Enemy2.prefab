@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 4065758546581313150}
   - component: {fileID: 4065758546581313145}
   - component: {fileID: 4065758546581313144}
-  - component: {fileID: 4065758546581313146}
+  - component: {fileID: 5442772756657902501}
   - component: {fileID: 4065758546581313147}
   m_Layer: 16
   m_Name: Weapon
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 10
---- !u!114 &4065758546581313146
+--- !u!114 &5442772756657902501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,10 +210,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4065758546581313151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b1a06f846233ec4092ab5721bcb78a8, type: 3}
+  m_Script: {fileID: 11500000, guid: ddafeb8bda9bdf94d94d7464feba23b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullets: {fileID: 4824386351251719128, guid: 105ac5729ec7a1645945204ed3bbbf1f, type: 3}
+  bullets: {fileID: 7385170805434153062, guid: d165d98a1f3d7f64da6969e418661dd6, type: 3}
+  isEnergyWeapon: 1
+  isOPWeapon: 0
   timeToShoot: 1
 --- !u!58 &4065758546581313147
 CircleCollider2D:
@@ -447,7 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HPBar: {fileID: 4065758547063431259}
-  HP: 50
+  maxHP: 50
 --- !u!114 &4065758547196980736
 MonoBehaviour:
   m_ObjectHideFlags: 0
