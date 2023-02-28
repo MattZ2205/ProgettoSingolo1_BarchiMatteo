@@ -21,7 +21,7 @@ public class OPBullet : MonoBehaviour
         if (collision.gameObject.layer == 12)
         {
             MyPlayer player = collision.gameObject.GetComponent<MyPlayer>();
-            player.TakeDamage(10);
+            player.TakeDamage(100);
         }
     }
 

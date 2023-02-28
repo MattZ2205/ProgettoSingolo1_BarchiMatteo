@@ -18,15 +18,14 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         Destroy(gameObject);
         if (collision.gameObject.layer == 11 && !isEnemy)
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            enemy.TakeDamageEnemy(20);
+            enemy.TakeDamageEnemy(15);
         }
 
-        if (collision.gameObject.layer == 12)
+        if (collision.gameObject.layer == 12 && isEnemy)
         {
             MyPlayer player = collision.gameObject.GetComponent<MyPlayer>();
             player.TakeDamage(20);

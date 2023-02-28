@@ -13,6 +13,7 @@ public class EndLevel : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.layer == 17)
         if (gameObject.name == "EndLevel")
         {
             GameManager.gameStatus = GameManager.GameStatus.gameEnd;
