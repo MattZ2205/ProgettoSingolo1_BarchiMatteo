@@ -216,7 +216,7 @@ MonoBehaviour:
   bullets: {fileID: 7385170805434153062, guid: d165d98a1f3d7f64da6969e418661dd6, type: 3}
   isEnergyWeapon: 1
   isOPWeapon: 0
-  timeToShoot: 1
+  timeToShoot: 0.7
 --- !u!58 &4065758546581313147
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     UIManager UM;
 
     [HideInInspector] public float playerHP = 100;
+    [HideInInspector] public static float score;
+    float levelScore;
 
     private static GameManager _instance;
 
@@ -47,6 +49,18 @@ public class GameManager : MonoBehaviour
             UM.Continue();
         else if (Input.anyKey && gameStatus == GameStatus.gameEnd)
             UM.isRestarted = true;
+
+
+    }
+
+    public void LockScore()
+    {
+        levelScore = score;
+    }
+
+    public void ResetScore()
+    {
+        score = levelScore;
     }
 
     public void LoseGame()

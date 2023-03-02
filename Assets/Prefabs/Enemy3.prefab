@@ -306,10 +306,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddafeb8bda9bdf94d94d7464feba23b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullets: {fileID: 7385170805434153062, guid: d165d98a1f3d7f64da6969e418661dd6, type: 3}
+  bullets: {fileID: 3880948677683062082, guid: b5e980c5c313c27479ad12d69c629611, type: 3}
   isEnergyWeapon: 0
   isOPWeapon: 1
-  timeToShoot: 3
+  timeToShoot: 2.8
 --- !u!1 &183388237113881326
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7972580896294447363}
   - component: {fileID: 3205912238803797259}
   - component: {fileID: 4824028265124706121}
-  - component: {fileID: -809796637483683820}
+  - component: {fileID: 4236190196309032215}
   m_Layer: 16
   m_Name: MiniBullet
   m_TagString: Untagged
@@ -124,7 +124,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-809796637483683820
+--- !u!114 &4236190196309032215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,7 +133,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6101637663063108328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3240d56566b570f4baf3a8caea908f69, type: 3}
+  m_Script: {fileID: 11500000, guid: 9526eafa7dc48884e8ad94ee75d620c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 7
+  dir: {x: 0, y: 0}
+  damage: 0

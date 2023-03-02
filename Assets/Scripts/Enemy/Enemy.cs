@@ -29,7 +29,10 @@ public class Enemy : MonoBehaviour
         HP -= damage;
         HPBarFill();
         if (HP <= 0)
+        {
             Destroy(gameObject);
+            GameManager.score += 100;
+        }
     }
 
     void HPBarFill()

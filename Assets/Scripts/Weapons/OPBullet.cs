@@ -30,8 +30,8 @@ public class OPBullet : MonoBehaviour
         EnemyBullet b = miniBullet.GetComponent<EnemyBullet>();
         b.dir = Vector2.up;
         b.damage = 10;
-        Instantiate(miniBullet, transform.position, Quaternion.Euler(0, 0, -45));
-        Instantiate(miniBullet, transform.position, Quaternion.Euler(0, 0, 0));
-        Instantiate(miniBullet, transform.position, Quaternion.Euler(0, 0, 45));
+        Instantiate(b, transform.position, Quaternion.Euler(0, 0, -45));
+        Instantiate(b, transform.position, Quaternion.Euler(0, 0, 0));
+        Instantiate(b, transform.position, Quaternion.Euler(0, 0, 45));
     }
 }

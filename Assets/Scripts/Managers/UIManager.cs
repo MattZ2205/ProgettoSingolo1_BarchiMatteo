@@ -7,11 +7,18 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    GameManager GM;
+
     [SerializeField] public GameObject pauseMenu, gameOverScene, winScene, finishScene;
-    [SerializeField] public Text timerText, timerWinText;
+    [SerializeField] public Text timerText, timerWinText, ScoreCanvas;
 
     [HideInInspector] public bool isRestarted = false;
     float timer = 3.4f;
+
+    private void Start()
+    {
+        GM = FindObjectOfType<GameManager>();
+    }
 
     private void Update()
     {
@@ -31,11 +38,13 @@ public class UIManager : MonoBehaviour
                     nextLvl();
             }
         }
+        ScoreCanvas.text = GameManager.score.ToString();
     }
 
     void nextLvl()
     {
         GameManager.gameStatus = GameManager.GameStatus.gameRunning;
+        GM.LockScore();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -48,12 +57,14 @@ public class UIManager : MonoBehaviour
     public void Restart()
     {
         GameManager.gameStatus = GameManager.GameStatus.gameRunning;
+        GM.ResetScore();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void BackToMenu()
     {
         GameManager.gameStatus = GameManager.GameStatus.gameRunning;
+        GameManager.score = 0;
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 

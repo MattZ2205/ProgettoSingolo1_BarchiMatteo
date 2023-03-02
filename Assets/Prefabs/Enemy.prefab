@@ -362,7 +362,7 @@ MonoBehaviour:
   bullets: {fileID: 7385170805434153062, guid: d165d98a1f3d7f64da6969e418661dd6, type: 3}
   isEnergyWeapon: 0
   isOPWeapon: 0
-  timeToShoot: 1.5
+  timeToShoot: 1
 --- !u!1 &7922347946574853896
 GameObject:
   m_ObjectHideFlags: 0

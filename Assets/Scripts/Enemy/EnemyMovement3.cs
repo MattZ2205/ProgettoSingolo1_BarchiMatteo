@@ -20,12 +20,10 @@ public class EnemyMovement3 : MonoBehaviour
             timer += Time.deltaTime;
             if (timer >= 5)
             {
-                Debug.Log("1");
                 Jump();
             }
             else if (timer >= 3.5)
             {
-                Debug.Log("0");
                 JumpCond();
             }
             transform.Translate(Vector2.left * speed * Time.deltaTime);
